@@ -12,6 +12,7 @@ import (
 
 	"github.com/actgardner/gogen-avro/v10/parser"
 	"github.com/actgardner/gogen-avro/v10/schema"
+	"github.com/ettle/strcase"
 )
 
 const (
@@ -57,15 +58,13 @@ func generate(w io.Writer, pkg string, caser func(string) string, ns *parser.Nam
 	if len(localDefinitions) == 0 {
 		return nil
 	}
+
 	gc := &generateContext{
 		imports:  make(map[string]string),
 		extTypes: extTypes,
 		caser:    caser,
 	}
-	// Add avrotypegen package conditionally when there is a RecordDefinition in the namespace.
-	if shouldImportAvroTypeGen(ns, definitions) {
-		gc.addImport("github.com/heetch/avro/avrotypegen")
-	}
+
 	var body bytes.Buffer
 	if err := bodyTemplate.Execute(&body, bodyTemplateParams{
 		Definitions: localDefinitions,
@@ -502,10 +501,10 @@ func (gc *generateContext) GoTypeOf(t schema.AvroType) typeInfo {
 		info.GoType = "int"
 	case *schema.LongField:
 		switch logicalType(t) {
+		case timestampMillis:
+			info.GoType = "TimestampMillis"
 		case timestampMicros:
-			// TODO support timestampMillis. https://github.com/heetch/avro/issues/3
-			info.GoType = "time.Time"
-			gc.addImport("time")
+			info.GoType = "TimestampMicros"
 		case durationNanos:
 			info.GoType = "time.Duration"
 			gc.addImport("time")
@@ -624,6 +623,7 @@ func goTypeForDefinition(def schema.Definition) goType {
 		// Using GoType to set a name
 		name = def.GoType()
 	}
+	name = strcase.NewCaser(true, parseExtraInitialismsFlag(), nil).ToPascal(name)
 	return goType{
 		PkgPath: pkg,
 		Name:    name,

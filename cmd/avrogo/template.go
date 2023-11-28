@@ -48,9 +48,11 @@ var headerTemplate = newTemplate(`
 
 package «.Pkg»
 
+« if .Imports »
 import (
 «range $imp := .Imports»«printf "%s %q" (index $.ImportIds $imp) $imp»
 «end»)
+«end»
 `)
 
 type bodyTemplateParams struct {
@@ -76,11 +78,6 @@ var bodyTemplate = newTemplate(`
 				«- goName $.Ctx .Name» «$type.GoType» ` + "`" + `json:«printf "%q" .Name»` + "`" + `
 			«- end»
 		«end»
-		}
-
-		// AvroRecord implements the avro.AvroRecord interface.
-		func («defName .») AvroRecord() avrotypegen.RecordInfo {
-			return «$.Ctx.RecordInfoLiteral .»
 		}
 	«else if eq (typeof .) "EnumDefinition"»
 		«- import $.Ctx "strconv"»
