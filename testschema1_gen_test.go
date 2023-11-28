@@ -3,7 +3,7 @@
 package avro_test
 
 import (
-	"github.com/heetch/avro/avrotypegen"
+	"github.com/arenko-group/avro/avrotypegen"
 )
 
 type TestRecord struct {

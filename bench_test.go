@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
+	"github.com/arenko-group/avro"
 	qt "github.com/frankban/quicktest"
-	"github.com/heetch/avro"
 )
 
 func BenchmarkMarshal(b *testing.B) {

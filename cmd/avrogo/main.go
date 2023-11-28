@@ -29,7 +29,7 @@
 // recognized:
 //
 // See the README for a full description of how schemas
-// map to generated Go types: https://github.com/heetch/avro/blob/master/README.md
+// map to generated Go types: https://github.com/arenko-group/avro/blob/master/README.md
 package main
 
 import (
@@ -282,7 +282,7 @@ func parseFiles(files []string) (*parser.Namespace, [][]schema.QualifiedName, er
 			// a name for the type, and we may not be able to define
 			// methods on it because it might be a union type which
 			// is represented by an interface type in Go.
-			// See https://github.com/heetch/avro/issues/13
+			// See https://github.com/arenko-group/avro/issues/13
 			return nil, nil, fmt.Errorf("cannot generate code for schema %q which hasn't got a name (%T)", f, avroType)
 		}
 		for name, def := range singleNS.Definitions {

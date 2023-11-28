@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/heetch/avro/avrotypegen"
+	"github.com/arenko-group/avro/avrotypegen"
 )
 
 // Info is the representation of Go types used
@@ -66,7 +66,7 @@ func ForType(t reflect.Type) (Info, error) {
 			f := t.Field(i)
 			if f.Anonymous {
 				// TODO consider struct embedding.
-				// https://github.com/heetch/avro/issues/40
+				// https://github.com/arenko-group/avro/issues/40
 				return Info{}, fmt.Errorf("anonymous fields not supported")
 			}
 			if shouldOmitField(f) {
@@ -97,7 +97,7 @@ func ForType(t reflect.Type) (Info, error) {
 		return info, nil
 	default:
 		// TODO check for top-level union types too.
-		// See https://github.com/heetch/avro/issues/13
+		// See https://github.com/arenko-group/avro/issues/13
 		if debugging {
 			debugf("-> unknown")
 		}

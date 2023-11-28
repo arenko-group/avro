@@ -13,7 +13,7 @@ module example.com/foo/bar
 
 go 1.15
 
-require github.com/heetch/avro v0.2.7
+require github.com/arenko-group/avro v0.2.7
 -- go.sum --
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/frankban/quicktest v1.2.2/go.mod h1:Qh/WofXFeiAFII1aEBu529AtJo6Zg2VHscnEsbBnJ20=
@@ -23,8 +23,8 @@ github.com/golang/snappy v0.0.1/go.mod h1:/XxbfmMg8lxefKM7IXC3fBNl/7bRcc72aCRzEW
 github.com/google/go-cmp v0.2.1-0.20190312032427-6f77996f0c42/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=
 github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=
 github.com/google/go-cmp v0.4.0/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
-github.com/heetch/avro v0.2.7 h1:35mMICGCb4CTec4t6YPcPs5cX/U0RLej89CWSSWgmyM=
-github.com/heetch/avro v0.2.7/go.mod h1:t1xogB7NPGcw6JgSzkwUM4UpC7NHWNyovud7rgOp4aU=
+github.com/arenko-group/avro v0.2.7 h1:35mMICGCb4CTec4t6YPcPs5cX/U0RLej89CWSSWgmyM=
+github.com/arenko-group/avro v0.2.7/go.mod h1:t1xogB7NPGcw6JgSzkwUM4UpC7NHWNyovud7rgOp4aU=
 github.com/juju/qthttptest v0.1.1/go.mod h1:aTlAv8TYaflIiTDIQYzxnl1QdPjAg8Q8qJMErpKy6A4=
 github.com/julienschmidt/httprouter v1.3.0/go.mod h1:JR6WtHb+2LUe8TCKY3cZOxFyyO8IZAc4RVcycCCAKdM=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=

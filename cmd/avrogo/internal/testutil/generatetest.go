@@ -9,7 +9,7 @@ import (
 	"github.com/kr/pretty"
 	"github.com/linkedin/goavro/v2"
 
-	"github.com/heetch/avro"
+	"github.com/arenko-group/avro"
 )
 
 type RoundTripTest struct {

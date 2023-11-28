@@ -119,7 +119,7 @@ func (c *SingleDecoder) getProgram(ctx context.Context, vt reflect.Type, wID int
 		wType, err = c.registry.SchemaForID(ctx, wID)
 		// TODO look at the SchemaForID error
 		// and return an error without caching it if it's temporary?
-		// See https://github.com/heetch/avro/issues/39
+		// See https://github.com/arenko-group/avro/issues/39
 	}
 	c.mu.Lock()
 	defer c.mu.Unlock()

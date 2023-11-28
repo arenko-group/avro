@@ -3,7 +3,7 @@
 package unionInOut
 
 import (
-	"github.com/heetch/avro/avrotypegen"
+	"github.com/arenko-group/avro/avrotypegen"
 )
 
 type PrimitiveUnionTestRecord struct {

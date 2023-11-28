@@ -14,7 +14,7 @@ to Avro schemas. See the TypeOf function for more details.
 
 There is also a code generation tool that can generate
 Go data structures from Avro schemas.
-See https://pkg.go.dev/github.com/heetch/avro/cmd/avrogo
+See https://pkg.go.dev/github.com/arenko-group/avro/cmd/avrogo
 for details.
 */
 package avro

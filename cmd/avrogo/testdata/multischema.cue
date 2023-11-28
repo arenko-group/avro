@@ -108,7 +108,7 @@ tests: multiSchemaExternalType: {
 			type: {
 				type:         "record"
 				name:         "com.heetch.Message"
-				"go.package": "github.com/heetch/avro/internal/testtypes"
+				"go.package": "github.com/arenko-group/avro/internal/testtypes"
 				fields: [{
 					name: "Metadata"
 					type: {
@@ -165,7 +165,7 @@ tests: multiSchemaExternalType: {
 	extraSchemas: [{
 		type:         "record"
 		name:         "com.heetch.Message"
-		"go.package": "github.com/heetch/avro/internal/testtypes"
+		"go.package": "github.com/arenko-group/avro/internal/testtypes"
 		fields: [{
 			name: "Metadata"
 			type: {

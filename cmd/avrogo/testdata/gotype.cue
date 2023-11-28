@@ -224,7 +224,7 @@ tests: goTypeProtobufRecord: {
 	otherTests: """
 	package goTypeProtobufRecord
 
-	import "github.com/heetch/avro/internal/testtypes"
+	import "github.com/arenko-group/avro/internal/testtypes"
 
 	type R = testtypes.MessageB
 	"""
@@ -250,7 +250,7 @@ tests: goTypeExternal: {
 			type: {
 				type:         "record"
 				name:         "com.heetch.Message"
-				"go.package": "github.com/heetch/avro/internal/testtypes"
+				"go.package": "github.com/arenko-group/avro/internal/testtypes"
 				fields: [{
 					name: "Metadata"
 					type: {
@@ -315,7 +315,7 @@ tests: goTypeExternal: {
 
 		qt "github.com/frankban/quicktest"
 
-		"github.com/heetch/avro/internal/testtypes"
+		"github.com/arenko-group/avro/internal/testtypes"
 	)
 
 	var (
