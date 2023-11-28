@@ -418,11 +418,31 @@ func (gc *generateContext) defaultFuncLiteral(v interface{}, t schema.AvroType) 
 	}
 }
 
+func caser() *strcase.Caser {
+	return strcase.NewCaser(
+		true,
+		// Extra acronyms to initialise in addition to the default Go set (e.g. ID)
+		map[string]bool{
+			"BM":     true,
+			"DC":     true,
+			"DM":     true,
+			"DR":     true,
+			"GBP":    true,
+			"GBPPMW": true,
+			"GMD":    true,
+			"HF":     true,
+			"LF":     true,
+			"MW":     true,
+		},
+		nil, // Default word splitting
+	)
+}
+
 // goName returns an exported Go identifier for the Avro name s.
 func goName(s string) (string, error) {
 	lastIndex := strings.LastIndex(s, ".")
 	name := s[lastIndex+1:]
-	name = strcase.NewCaser(true, nil, nil).ToPascal(name)
+	name = caser().ToPascal(name)
 	if !isExportedGoIdentifier(name) {
 		return "", fmt.Errorf("cannot form an exported Go identifier from %q", s)
 	}
@@ -621,8 +641,7 @@ func goTypeForDefinition(def schema.Definition) goType {
 		// Using GoType to set a name
 		name = def.GoType()
 	}
-	caser := strcase.NewCaser(true, nil, nil)
-	name = caser.ToPascal(name)
+	name = caser().ToPascal(name)
 	return goType{
 		PkgPath: pkg,
 		Name:    name,
