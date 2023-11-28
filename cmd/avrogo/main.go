@@ -100,7 +100,7 @@ func generateFiles(files []string) error {
 	if *tokenizeFlag {
 		for _, fileDefinition := range fileDefinitions {
 			for _, qualifiedName := range fileDefinition {
-				outputPath := path.Join(strings.ToLower(qualifiedName.Name) + *suffixFlag + ".go")
+				outputPath := path.Join(strings.ToLower(qualifiedName.Namespace) + "." + strings.ToLower(qualifiedName.Name) + *suffixFlag + ".go")
 				singleFileList := []schema.QualifiedName{qualifiedName}
 
 				if err := generateFile(outputPath, ns, singleFileList); err != nil {

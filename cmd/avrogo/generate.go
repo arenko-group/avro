@@ -4,8 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/text/cases"
-	"golang.org/x/text/language"
 	"io"
 	"regexp"
 	"sort"
@@ -14,6 +12,7 @@ import (
 
 	"github.com/actgardner/gogen-avro/v10/parser"
 	"github.com/actgardner/gogen-avro/v10/schema"
+	"github.com/ettle/strcase"
 )
 
 const (
@@ -59,14 +58,12 @@ func generate(w io.Writer, pkg string, ns *parser.Namespace, definitions []schem
 	if len(localDefinitions) == 0 {
 		return nil
 	}
+
 	gc := &generateContext{
 		imports:  make(map[string]string),
 		extTypes: extTypes,
 	}
-	// Add avrotypegen package conditionally when there is a RecordDefinition in the namespace.
-	if shouldImportAvroTypeGen(ns, definitions) {
-		gc.addImport("github.com/heetch/avro/avrotypegen")
-	}
+
 	var body bytes.Buffer
 	if err := bodyTemplate.Execute(&body, bodyTemplateParams{
 		Definitions: localDefinitions,
@@ -425,7 +422,7 @@ func (gc *generateContext) defaultFuncLiteral(v interface{}, t schema.AvroType) 
 func goName(s string) (string, error) {
 	lastIndex := strings.LastIndex(s, ".")
 	name := s[lastIndex+1:]
-	name = cases.Title(language.Und).String(strings.Trim(name, "_"))
+	name = strcase.NewCaser(true, nil, nil).ToPascal(name)
 	if !isExportedGoIdentifier(name) {
 		return "", fmt.Errorf("cannot form an exported Go identifier from %q", s)
 	}
@@ -502,10 +499,10 @@ func (gc *generateContext) GoTypeOf(t schema.AvroType) typeInfo {
 		info.GoType = "int"
 	case *schema.LongField:
 		switch logicalType(t) {
+		case timestampMillis:
+			info.GoType = "TimestampMillis"
 		case timestampMicros:
-			// TODO support timestampMillis. https://github.com/heetch/avro/issues/3
-			info.GoType = "time.Time"
-			gc.addImport("time")
+			info.GoType = "TimestampMicros"
 		case durationNanos:
 			info.GoType = "time.Duration"
 			gc.addImport("time")
@@ -624,6 +621,8 @@ func goTypeForDefinition(def schema.Definition) goType {
 		// Using GoType to set a name
 		name = def.GoType()
 	}
+	caser := strcase.NewCaser(true, nil, nil)
+	name = caser.ToPascal(name)
 	return goType{
 		PkgPath: pkg,
 		Name:    name,

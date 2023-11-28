@@ -2,13 +2,14 @@ package main
 
 import (
 	"go/token"
-	"golang.org/x/text/cases"
-	"golang.org/x/text/language"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
 	"text/template"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 
 	"github.com/actgardner/gogen-avro/v10/parser"
 	"github.com/actgardner/gogen-avro/v10/schema"
@@ -48,9 +49,11 @@ var headerTemplate = newTemplate(`
 
 package «.Pkg»
 
+« if .Imports »
 import (
 «range $imp := .Imports»«printf "%s %q" (index $.ImportIds $imp) $imp»
 «end»)
+«end»
 `)
 
 type bodyTemplateParams struct {
@@ -76,11 +79,6 @@ var bodyTemplate = newTemplate(`
 				«- goName .Name» «$type.GoType» ` + "`" + `json:«printf "%q" .Name»` + "`" + `
 			«- end»
 		«end»
-		}
-
-		// AvroRecord implements the avro.AvroRecord interface.
-		func («defName .») AvroRecord() avrotypegen.RecordInfo {
-			return «$.Ctx.RecordInfoLiteral .»
 		}
 	«else if eq (typeof .) "EnumDefinition"»
 		«- import $.Ctx "strconv"»
