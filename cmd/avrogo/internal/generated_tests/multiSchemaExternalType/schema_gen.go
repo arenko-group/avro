@@ -3,8 +3,8 @@
 package multiSchemaExternalType
 
 import (
-	"github.com/heetch/avro/avrotypegen"
-	"github.com/heetch/avro/internal/testtypes"
+	"github.com/arenko-group/avro/avrotypegen"
+	"github.com/arenko-group/avro/internal/testtypes"
 )
 
 type R struct {
@@ -16,7 +16,7 @@ type R struct {
 // AvroRecord implements the avro.AvroRecord interface.
 func (R) AvroRecord() avrotypegen.RecordInfo {
 	return avrotypegen.RecordInfo{
-		Schema: `{"fields":[{"name":"F","type":{"fields":[{"name":"Metadata","type":{"fields":[{"name":"CloudEvent","type":{"fields":[{"name":"id","type":"string"},{"name":"source","type":"string"},{"name":"specversion","type":"string"},{"name":"time","type":{"logicalType":"timestamp-micros","type":"long"}}],"name":"CloudEvent","type":"record"}}],"name":"Metadata","type":"record"}}],"go.package":"github.com/heetch/avro/internal/testtypes","name":"com.heetch.Message","type":"record"}},{"name":"G","type":"com.heetch.CloudEvent"},{"name":"H","type":"string"}],"name":"R","type":"record"}`,
+		Schema: `{"fields":[{"name":"F","type":{"fields":[{"name":"Metadata","type":{"fields":[{"name":"CloudEvent","type":{"fields":[{"name":"id","type":"string"},{"name":"source","type":"string"},{"name":"specversion","type":"string"},{"name":"time","type":{"logicalType":"timestamp-micros","type":"long"}}],"name":"CloudEvent","type":"record"}}],"name":"Metadata","type":"record"}}],"go.package":"github.com/arenko-group/avro/internal/testtypes","name":"com.heetch.Message","type":"record"}},{"name":"G","type":"com.heetch.CloudEvent"},{"name":"H","type":"string"}],"name":"R","type":"record"}`,
 		Required: []bool{
 			0: true,
 			1: true,

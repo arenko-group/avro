@@ -6,7 +6,7 @@ import (
 
 	qt "github.com/frankban/quicktest"
 
-	"github.com/heetch/avro/cmd/avrogo/avrotypemap"
+	"github.com/arenko-group/avro/cmd/avrogo/avrotypemap"
 )
 
 //go:generate avrogo union.avsc
@@ -37,7 +37,7 @@ func TestTypeInfo(t *testing.T) {
 	})
 }
 
-const testPkg = "github.com/heetch/avro/cmd/avrogo/avrotypemap_test"
+const testPkg = "github.com/arenko-group/avro/cmd/avrogo/avrotypemap_test"
 
 func TestUnion(t *testing.T) {
 	c := qt.New(t)

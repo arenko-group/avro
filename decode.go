@@ -117,7 +117,7 @@ func (d *decoder) eval(target reflect.Value) {
 			case vm.Boolean:
 				frame.Boolean = d.readBool()
 			case vm.Int:
-				// TODO bounds check. See https://github.com/heetch/avro/issues/33.
+				// TODO bounds check. See https://github.com/arenko-group/avro/issues/33.
 				frame.Int = d.readLong()
 			case vm.Long:
 				frame.Int = d.readLong()
@@ -148,7 +148,7 @@ func (d *decoder) eval(target reflect.Value) {
 				// is setting milliseconds or microseconds. We'll need
 				// need more information from the VM to be able to
 				// do that, so support only timestamp-micros for now.
-				// See https://github.com/heetch/avro/issues/3
+				// See https://github.com/arenko-group/avro/issues/3
 				switch target.Type() {
 				case timeType:
 					// timestamp-micros
@@ -228,7 +228,7 @@ func (d *decoder) eval(target reflect.Value) {
 				// will also be nil. Perhaps when SetLong is called on the
 				// union type, we should create the map.
 				// The same applies to slices.
-				// See https://github.com/heetch/avro/issues/19
+				// See https://github.com/arenko-group/avro/issues/19
 				target.Set(reflect.MakeMap(target.Type()))
 			}
 			target.SetMapIndex(reflect.ValueOf(frame.String), elem)

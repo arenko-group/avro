@@ -3,7 +3,7 @@
 package duplicateRecord
 
 import (
-	"github.com/heetch/avro/avrotypegen"
+	"github.com/arenko-group/avro/avrotypegen"
 )
 
 type R1 struct {

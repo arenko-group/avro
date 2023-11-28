@@ -81,7 +81,7 @@ func generate(w io.Writer, pkg string, ns *parser.Namespace, definitions []schem
 	// TODO look at the actual identifier used by the
 	// package to avoid the explicit identifer in more cases.
 	for pkg := range gc.imports {
-		if !strings.Contains(pkg, ".") || strings.HasPrefix(pkg, "github.com/heetch/avro/") {
+		if !strings.Contains(pkg, ".") || strings.HasPrefix(pkg, "github.com/arenko-group/avro/") {
 			gc.imports[pkg] = ""
 		}
 	}
@@ -469,7 +469,7 @@ func writeUnionComment(w io.Writer, union []typeInfo, indent string) {
 	if len(union) == 2 && (union[0].GoType == nullType || union[1].GoType == nullType) {
 		// No need to comment a nil union.
 		// TODO we may want to document whether a map or array may
-		// be nil though. https://github.com/heetch/avro/issues/19
+		// be nil though. https://github.com/arenko-group/avro/issues/19
 		return
 	}
 	printf := func(a string, f ...interface{}) {
@@ -529,7 +529,7 @@ func (gc *generateContext) GoTypeOf(t schema.AvroType) typeInfo {
 			// TODO if inner type is array or map, we don't need
 			// the pointer - both of those types already have nil
 			// values in Go.
-			// https://github.com/heetch/avro/issues/19
+			// https://github.com/arenko-group/avro/issues/19
 			inner := gc.GoTypeOf(types[1])
 			info.GoType = "*" + inner.GoType
 			info.Union = []typeInfo{

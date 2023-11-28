@@ -5,7 +5,7 @@ package unionNullString
 import (
 	"testing"
 
-	"github.com/heetch/avro/cmd/avrogo/internal/testutil"
+	"github.com/arenko-group/avro/cmd/avrogo/internal/testutil"
 )
 
 var tests = testutil.RoundTripTest{

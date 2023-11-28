@@ -46,7 +46,7 @@
                                     }
                                 }
                             ],
-                            "go.package": "github.com/heetch/avro/internal/testtypes"
+                            "go.package": "github.com/arenko-group/avro/internal/testtypes"
                         }
                     },
                     {

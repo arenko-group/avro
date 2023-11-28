@@ -5,7 +5,7 @@ package goTypeExternal
 import (
 	"testing"
 
-	"github.com/heetch/avro/cmd/avrogo/internal/testutil"
+	"github.com/arenko-group/avro/cmd/avrogo/internal/testutil"
 )
 
 var tests = testutil.RoundTripTest{
@@ -57,7 +57,7 @@ var tests = testutil.RoundTripTest{
                                     }
                                 }
                             ],
-                            "go.package": "github.com/heetch/avro/internal/testtypes"
+                            "go.package": "github.com/arenko-group/avro/internal/testtypes"
                         }
                     },
                     {

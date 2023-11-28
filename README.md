@@ -1,19 +1,19 @@
 # Avro - Go-idiomatic encoding and decoding of Avro data
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/heetch/avro.svg)](https://pkg.go.dev/github.com/heetch/avro)
+[![Go Reference](https://pkg.go.dev/badge/github.com/arenko-group/avro.svg)](https://pkg.go.dev/github.com/arenko-group/avro)
 
-This package provides both a [code generator](https://pkg.go.dev/github.com/heetch/avro/cmd/avrogo) that generates Go data
+This package provides both a [code generator](https://pkg.go.dev/github.com/arenko-group/avro/cmd/avrogo) that generates Go data
 structures from [Avro schemas](https://avro.apache.org/docs/1.9.1/spec.html) and a mapping between native
 Go data types and Avro schemas.
 
 The API is modelled after that of Go's standard library [encoding/json
 package](https://golang.org/pkg/encoding/json).
 
-The documentation can be found [here](https://pkg.go.dev/github.com/heetch/avro).
+The documentation can be found [here](https://pkg.go.dev/github.com/arenko-group/avro).
 
 It also provides support for encoding and decoding messages
 using an [Avro schema registry](https://docs.confluent.io/current/schema-registry/index.html) - see
-[github.com/heetch/avro/avroregistry](https://pkg.go.dev/github.com/heetch/avro/avroregistry).
+[github.com/arenko-group/avro/avroregistry](https://pkg.go.dev/github.com/arenko-group/avro/avroregistry).
 
 ## How are Avro schemas represented as Go datatypes?
 
@@ -83,11 +83,11 @@ likely to be familiar to most Go users.
 
 ## Integration testing
 
-A `github.com/heetch/avro/avroregistrytest` package is provided to run
+A `github.com/arenko-group/avro/avroregistrytest` package is provided to run
 integration test against a real schema registry.
 
 ```go
-import "github.com/heetch/avro/avroregistrytest"
+import "github.com/arenko-group/avro/avroregistrytest"
 
 type X struct {
    A int

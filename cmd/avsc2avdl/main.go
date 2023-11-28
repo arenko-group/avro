@@ -10,7 +10,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/heetch/avro/internal/typeinfo"
+	"github.com/arenko-group/avro/internal/typeinfo"
 
 	"github.com/actgardner/gogen-avro/v10/schema"
 )

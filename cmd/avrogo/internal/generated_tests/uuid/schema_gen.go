@@ -4,7 +4,7 @@ package uuid
 
 import (
 	uuid "github.com/google/uuid"
-	"github.com/heetch/avro/avrotypegen"
+	"github.com/arenko-group/avro/avrotypegen"
 )
 
 type R struct {

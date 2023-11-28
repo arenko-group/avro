@@ -12,7 +12,7 @@ import (
 	"github.com/actgardner/gogen-avro/v10/schema"
 	gouuid "github.com/google/uuid"
 
-	"github.com/heetch/avro/internal/typeinfo"
+	"github.com/arenko-group/avro/internal/typeinfo"
 )
 
 // Set to true for deterministic output.

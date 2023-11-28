@@ -12,7 +12,7 @@ import (
 	"github.com/actgardner/gogen-avro/v10/vm"
 	gouuid "github.com/google/uuid"
 
-	"github.com/heetch/avro/internal/typeinfo"
+	"github.com/arenko-group/avro/internal/typeinfo"
 )
 
 var (

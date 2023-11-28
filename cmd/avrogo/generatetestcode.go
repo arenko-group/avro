@@ -22,7 +22,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/heetch/avro/cmd/avrogo/internal/avrotestdata"
+	"github.com/arenko-group/avro/cmd/avrogo/internal/avrotestdata"
 )
 
 var testCodeTemplate = template.Must(
@@ -40,7 +40,7 @@ package «.TestName»
 import (
 	"testing"
 
-	"github.com/heetch/avro/cmd/avrogo/internal/testutil"
+	"github.com/arenko-group/avro/cmd/avrogo/internal/testutil"
 )
 
 var tests = testutil.RoundTripTest{

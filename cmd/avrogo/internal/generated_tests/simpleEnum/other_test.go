@@ -6,7 +6,7 @@ import (
 
 	qt "github.com/frankban/quicktest"
 
-	"github.com/heetch/avro"
+	"github.com/arenko-group/avro"
 )
 
 func TestString(t *testing.T) {
